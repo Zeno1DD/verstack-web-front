@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Verstack Admin Panel",
-    description: "Made by Tregubov Egor",
+    description: "Made by verstack-web",
 };
 
 export default function RootLayout({

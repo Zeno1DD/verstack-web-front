@@ -6,6 +6,7 @@ interface FormData {
     firstName: string;
     lastName: string;
     email: string;
+    phone: string;
 }
 
 interface ApiResponse {
@@ -21,6 +22,7 @@ export default function MainForm() {
         firstName: '',
         lastName: '',
         email: '',
+        phone: '',
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -56,6 +58,7 @@ export default function MainForm() {
                 firstName: '',
                 lastName: '',
                 email: '',
+                phone: '',
             });
             setSubmitResult({
                 success: true,
@@ -116,6 +119,21 @@ export default function MainForm() {
                         id="email"
                         name="email"
                         value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="tel" className="block text-sm font-medium text-gray-700">
+                        Номер телефона
+                    </label>
+                    <input
+                        type="tel"
+                        id="tel"
+                        name="phone"
+                        value={formData.phone}
                         onChange={handleChange}
                         required
                         className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
