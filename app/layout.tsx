@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Verstack App - IDK WTF IS THIS SH*T",
-  description: "Made by Tregubov Egor",
+  title: "Verstack App",
+  description: "Verstack-web",
 };
 
 export default function RootLayout({
