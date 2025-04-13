@@ -1,9 +1,5 @@
-import { Montserrat } from "next/font/google";
-import Header from "@comp/main/form/header";
-const montserrat = Montserrat({
-    variable: "--font-montserrat",
-    subsets: ["latin"],
-});
+import Header from "@/app/components/main/header";
+
 
 export default function RootLayout({
     children,
@@ -11,10 +7,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className={`${montserrat.className} flex flex-col`}>
-            <Header />
+        <div className={`flex flex-col mt-2 `}>
+            <div className="bg-white rounded-[40px]">
+                <Header />
+            </div>
             {children}
-            <nav></nav>
         </div>
     );
 }

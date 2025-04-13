@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { Montserrat_Alternates } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Verstack App",
   description: "Verstack-web",
 };
+const montserrat = Montserrat_Alternates({
+    subsets: ["latin"],
+    weight: ["400", "500", "700"],
+    variable: "--font-montserrat-alternates",
+    display: "swap",
+});
 
 export default function RootLayout({
   children,
@@ -24,8 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      <body className={`${montserrat.className}`}
       >
         {children}
       </body>

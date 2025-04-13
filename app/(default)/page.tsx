@@ -1,12 +1,12 @@
-import Cards from "../components/main/cards";
-
+// import Cards from "../components/main/mainpage/cards";
+import MainScreen from "../components/main/mainpage/mainscreen";
 
 export default function Home() {
   return (
 
     <div>
-      Главная
-      <Cards />
+      {/* <Cards /> */}
+      <MainScreen />
     </div>
   );
 }

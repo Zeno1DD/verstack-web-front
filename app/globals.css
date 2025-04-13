@@ -1,12 +1,11 @@
 @import "tailwindcss";
-
+@config "../tailwind.config.ts";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  background: #f6f5fa;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
+  background: #EFEFEF;
 }
 
 .hiddenScrollBar::-webkit-scrollbar {
