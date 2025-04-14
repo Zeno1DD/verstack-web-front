@@ -8,6 +8,9 @@ export default {
       colors: {
         accent: "#5700EF",
       },
+      spacing: {
+        'box-xl': '1440px',
+      },
     },
   },
   plugins: [],

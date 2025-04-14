@@ -3,7 +3,7 @@ import "./globals.css";
 import { Montserrat_Alternates } from "next/font/google";
 
 export const metadata: Metadata = {
-  title: "Verstack App",
+  title: "Verstack-web",
   description: "Verstack-web",
 };
 const montserrat = Montserrat_Alternates({
@@ -20,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${montserrat.className}`}
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body className={`${montserrat.className} max-w-box-xl mx-auto `}
       >
         {children}
       </body>

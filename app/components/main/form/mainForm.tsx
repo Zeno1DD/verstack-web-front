@@ -6,7 +6,6 @@ interface FormData {
     firstName: string;
     lastName: string;
     email: string;
-    phone: string;
 }
 
 interface ApiResponse {
@@ -22,7 +21,6 @@ export default function MainForm() {
         firstName: '',
         lastName: '',
         email: '',
-        phone: '',
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -58,17 +56,16 @@ export default function MainForm() {
                 firstName: '',
                 lastName: '',
                 email: '',
-                phone: '',
             });
             setSubmitResult({
                 success: true,
-                message: 'Все чики пуки, все записали',
+                message: 'Заявка отправлена!',
             });
         } catch (error) {
             console.error('Submission error:', error);
             setSubmitResult({
                 success: false,
-                message: 'Хз но че то пошло не так... (чекни консоль что-ли)',
+                message: 'Что-то пошло не так',
             });
         } finally {
             setIsSubmitting(false);
@@ -76,13 +73,13 @@ export default function MainForm() {
     };
 
     return (
-        <div className="max-w-md mx-auto p-6 bg-cyan-100 text-black rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800">Заявка на получение леденца</h2>
+        <div className="w-[50%] mx-auto p-10 bg-white rounded-[50px] shadow-md">
+            <h2 className="text-3xl font-extrabold mb-6 ">Связаться с нами</h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
-                        Имя
+                    <label htmlFor="firstName" className="block text-sm font-medium">
+                        Ваше Имя
                     </label>
                     <input
                         type="text"
@@ -91,7 +88,7 @@ export default function MainForm() {
                         value={formData.firstName}
                         onChange={handleChange}
                         required
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                        className="mt-1 block w-full px-5 py-3 border border-[#D4D4D4] bg-[#F0F0F0] rounded-[50px] shadow-sm focus:outline-none focus:ring-accent focus:border-accent"
                     />
                 </div>
 
@@ -106,7 +103,7 @@ export default function MainForm() {
                         value={formData.lastName}
                         onChange={handleChange}
                         required
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                        className="mt-1 block w-full px-5 py-3 border border-[#D4D4D4] bg-[#F0F0F0] rounded-[50px] shadow-sm focus:outline-none focus:ring-accent focus:border-accent"
                     />
                 </div>
 
@@ -121,25 +118,9 @@ export default function MainForm() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                        className="mt-1 block w-full px-5 py-3 border border-[#D4D4D4] bg-[#F0F0F0] rounded-[50px] shadow-sm focus:outline-none focus:ring-accent focus:border-accent"
                     />
                 </div>
-
-                <div>
-                    <label htmlFor="tel" className="block text-sm font-medium text-gray-700">
-                        Номер телефона
-                    </label>
-                    <input
-                        type="tel"
-                        id="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
-                </div>
-
                 <div>
                     <button
                         type="submit"
