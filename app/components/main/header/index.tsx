@@ -18,14 +18,13 @@ export default function Header() {
     const [items, setItems] = useState<NavLink[]>([]);
 
     useEffect(() => {
-        setItems(
-            [
-                { text: 'Главная', href: '/', active: pathname === "/", pos: 0 },
-                { text: 'Проекты', href: '/projects', active: pathname === "/projects", pos: 1 },
-                { text: 'Контакты', href: '/contacts', active: pathname === "/contacts", pos: 2 },
-            ]
-        )
+        setItems([
+            { text: 'Главная', href: '/', active: pathname === '/', pos: 0 },
+            { text: 'Проекты', href: '/projects', active: pathname.startsWith('/projects'), pos: 1 },
+            { text: 'Контакты', href: '/contacts', active: pathname === '/contacts', pos: 2 },
+        ])
     }, [pathname]);
+    
 
     return (
         <header className="w-full px-6 py-4 flex items-center justify-between">

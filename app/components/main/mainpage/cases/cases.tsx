@@ -13,45 +13,44 @@ interface CaseItem {
 
 const casesData: CaseItem[] = [
     {
-        title: 'Awwwards Case',
-        tags: ['UX/UI', 'Website'],
+        title: 'Linco',
+        tags: ['UX/UI', 'Website', 'WordPress'],
         bg: '/cases/bg1.png',
         icon: '/cases/aww.png',
-        href: '/project1',
+        href: 'projects/Linko',
     },
     {
-        title: 'Awwwards Case',
-        tags: ['UX/UI', 'Website'],
+        title: 'Linco',
+        tags: ['UX/UI', 'Website', 'WordPress'],
         bg: '/cases/bg1.png',
         icon: '/cases/aww.png',
-        href: '/project1',
+        href: 'projects/Linko',
     },
     {
-        title: 'Awwwards Case',
-        tags: ['UX/UI', 'Website'],
+        title: 'Linco',
+        tags: ['UX/UI', 'Website', 'WordPress'],
         bg: '/cases/bg1.png',
         icon: '/cases/aww.png',
-        href: '/project1',
+        href: 'projects/Linko',
     },
     {
-        title: 'Awwwards Case',
-        tags: ['UX/UI', 'Website'],
+        title: 'Linco',
+        tags: ['UX/UI', 'Website', 'WordPress'],
         bg: '/cases/bg1.png',
         icon: '/cases/aww.png',
-        href: '/project1',
+        href: 'projects/Linko',
     },
 ]
 
 export default function Cases() {
     return (
         <section className="py-12">
-            <h1 className="text-5xl font-extrabold mb-10 leading-7" >Кейсы</h1>
+            <h1 className="text-5xl font-extrabold mb-10 leading-7" >Проекты</h1>
             <div className="grid md:grid-cols-2 gap-[15px]">
                 {casesData.map((item, index) => (
                     <Link
                         key={index}
                         href={item.href}
-                        target="_blank"
                         rel="noopener noreferrer"
                         className="w-[700px] h-[548px] relative rounded-3xl overflow-hidden group"
                     >

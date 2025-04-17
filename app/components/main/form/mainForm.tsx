@@ -87,6 +87,7 @@ export default function MainForm() {
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
+                        placeholder='Иван'
                         required
                         className="mt-1 block w-full px-5 py-3 border border-[#D4D4D4] bg-[#F0F0F0] rounded-[50px] shadow-sm focus:outline-none focus:ring-accent focus:border-accent"
                     />
@@ -103,6 +104,7 @@ export default function MainForm() {
                         value={formData.lastName}
                         onChange={handleChange}
                         required
+                        placeholder='Иванов'
                         className="mt-1 block w-full px-5 py-3 border border-[#D4D4D4] bg-[#F0F0F0] rounded-[50px] shadow-sm focus:outline-none focus:ring-accent focus:border-accent"
                     />
                 </div>
@@ -118,6 +120,7 @@ export default function MainForm() {
                         value={formData.email}
                         onChange={handleChange}
                         required
+                        placeholder='email@gmail.com'
                         className="mt-1 block w-full px-5 py-3 border border-[#D4D4D4] bg-[#F0F0F0] rounded-[50px] shadow-sm focus:outline-none focus:ring-accent focus:border-accent"
                     />
                 </div>
@@ -125,7 +128,7 @@ export default function MainForm() {
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className={`cursor-pointer w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        className={`cursor-pointer w-full flex justify-center py-3 px-4 border border-transparent font-extrabold rounded-[50px] shadow-sm text-xl text-white bg-accent hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
                         {isSubmitting ? 'Отправка...' : 'Отправить'}
                     </button>
