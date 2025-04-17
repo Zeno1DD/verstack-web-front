@@ -7,7 +7,7 @@ type RequestOptions = {
 
 export default class Api {
     private readonly imageBasePath: string = "http://localhost:3300/media";
-    private readonly basePath: string = "http://localhost:3300/";
+    private readonly basePath: string = "https://verstack-web.ru/api/";
 
     private async request<T>(endpoint: string, method: HttpMethod, body?: any, params?: string): Promise<T> {
         const url = new URL(`${this.basePath}${endpoint}`);
