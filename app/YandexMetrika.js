@@ -1,31 +1,26 @@
-import Router from "next/router";
-import React, { useCallback, useEffect } from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import { YMInitializer, ym as yandexYm } from "react-yandex-metrika";
+import { usePathname } from "next/navigation";
+
+interface YandexMetrikaProps {
+  enabled: boolean;
+}
 
 const YM_COUNTER_ID = 101153409;
 
-const YandexMetrikaContainer = ({ enabled }) => {
-  const hit = useCallback(
-    (url) => {
-      if (enabled && typeof yandexYm === "function") {
-        yandexYm("hit", url);
-      } else {
-        console.log(`%c[YandexMetrika](HIT)`, "color: orange", url);
-      }
-    },
-    [enabled]
-  );
+const YandexMetrikaContainer: React.FC<YandexMetrikaProps> = ({ enabled }) => {
+  const pathname = usePathname();
 
   useEffect(() => {
-    hit(window.location.pathname + window.location.search);
-
-    const handleRouteChange = (url) => hit(url);
-    Router.events.on("routeChangeComplete", handleRouteChange);
-
-    return () => {
-      Router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [hit]);
+    const url = pathname + window.location.search;
+    if (enabled && typeof yandexYm === "function") {
+      yandexYm("hit", url);
+    } else {
+      console.log(`%c[YandexMetrika](HIT)`, "color: orange", url);
+    }
+  }, [pathname, enabled]);
 
   if (!enabled) return null;
 
