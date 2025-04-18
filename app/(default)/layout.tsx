@@ -8,7 +8,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html>
+        <html lang="ru">
+            <head />
             <body>
                 <YandexMetrikaContainer enabled={true} />
                 <div className={`flex flex-col mt-2 `}>
