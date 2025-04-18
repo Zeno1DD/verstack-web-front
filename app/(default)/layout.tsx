@@ -1,4 +1,3 @@
-"use client"
 import { useEffect } from 'react';
 import Header from "@/app/components/main/header";
 import Footer from "../components/main/footer";
@@ -9,10 +8,14 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     useEffect(() => {
+        // Явное указание типа для переменных
         (function(m: any, e: Document, t: string, r: string, i: string) {
+            // Инициализация ym (тип any)
             m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments); };
-            m[i].l = 1 * new Date();
-            
+            // Получение текущего времени через getTime()
+            m[i].l = new Date().getTime();  // Получаем количество миллисекунд с начала эпохи
+
+            // Работа с k (HTMLScriptElement) и a (HTMLElement)
             let k: HTMLScriptElement = e.createElement(t);
             let a: HTMLElement | null = e.getElementsByTagName(t)[0];
             if (a && a.parentNode) {
@@ -22,6 +25,7 @@ export default function RootLayout({
             }
         })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
+        // Инициализация метрики
         if (typeof ym !== 'undefined') {
             ym(101153409, "init", {
                 clickmap: true,
@@ -29,7 +33,7 @@ export default function RootLayout({
                 accurateTrackBounce: true
             });
         }
-    }, []);
+    }, []); // Пустой массив зависимостей означает, что эффект выполнится только один раз после рендера
 
     return (
         <html lang="ru">
