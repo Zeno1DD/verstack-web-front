@@ -34,11 +34,11 @@ const casesData: CaseItem[] = [
         href: 'projects/Linko',
     },
     {
-        title: 'Linco',
-        tags: ['UX/UI', 'Website', 'WordPress'],
+        title: 'Проект 4',
+        tags: ['UX/UI', 'Website'],
         bg: '/cases/bg1.png',
         icon: '/cases/aww.png',
-        href: 'projects/Linko',
+        href: 'projects/walmi',
     },
 ]
 
