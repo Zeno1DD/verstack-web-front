@@ -9,18 +9,15 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  // Инициализация метрики
   useEffect(() => {
-    ym('hit', '/home');  // Пример отслеживания страницы
+    ym('hit', '/home'); 
   }, []);
 
   return (
     <html lang="ru">
       <head>
-        {/* Инициализация Яндекс.Метрики */}
         <YMInitializer
-          accounts={[101153409]} // Здесь указываем ваш номер аккаунта Яндекс.Метрики
-          options={{ webvisor: true }} // Опционально, если нужно включить Webvisor
+          accounts={[101153409]} 
         />
       </head>
       <body>
