@@ -1,6 +1,6 @@
 import Header from "@/app/components/main/header";
 import Footer from "../components/main/footer";
-import YandexMetrikaContainer from "@app/YandexMetrikaContainer";
+import YandexMetrikaContainer from "../YandexMetrika";
 
 export default function RootLayout({
     children,
