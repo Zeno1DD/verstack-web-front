@@ -1,6 +1,6 @@
 import Header from "@/app/components/main/header";
 import Footer from "../components/main/footer";
-
+import YandexMetrikaContainer from "@app/YandexMetrikaContainer";
 
 export default function RootLayout({
     children,
@@ -8,12 +8,19 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className={`flex flex-col mt-2 `}>
-            <div className="bg-white rounded-[40px]">
-                <Header />
-            </div>
-            {children}
-            <Footer />
-        </div>
+        <html>
+            <body>
+                <YandexMetrikaContainer enabled={true} />
+                <div className={`flex flex-col mt-2 `}>
+                    <div className="bg-white rounded-[40px]">
+                        <Header />
+                    </div>
+                    {children}
+                    <Footer />
+                </div>
+            </body>
+        </html>
+        
+        
     );
 }
