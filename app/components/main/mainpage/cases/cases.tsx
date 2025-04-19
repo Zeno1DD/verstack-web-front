@@ -81,7 +81,7 @@ const casesData: CaseItem[] = [
     {
         title: 'Complexus',
         tags: ['Логотипы', 'Illustrator'],
-        bg: '/cases/Complexus.jpg',
+        bg: '/cases/complexus.jpg',
         icon: '',
         href: '',
         category: 'Логотипы',
