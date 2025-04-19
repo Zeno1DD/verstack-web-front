@@ -18,23 +18,29 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
+            echo "Загрузка окружения NVM"
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
             echo "Checking pm2 and npm versions"
-            /usr/local/bin/pm2 -v
-            /usr/bin/npm -v
+            pm2 -v
+            npm -v
 
             echo "Go to project directory"
             cd /var/www/verstack-web
 
             echo "Stopping pm2 process"
-            /usr/local/bin/pm2 stop verstack-web || true
+            pm2 stop verstack-web || true
 
             echo "Pulling latest changes"
             git pull
 
             echo "Installing dependencies and building"
-            /usr/bin/npm install
-            /usr/bin/npm run build
+            npm install
+            npm run build
 
             echo "Starting pm2 process"
-            /usr/local/bin/pm2 start --name "verstack-web" npm -- run start
+            pm2 start --name "verstack-web" npm -- run start
+
 
