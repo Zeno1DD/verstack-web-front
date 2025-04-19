@@ -2,33 +2,34 @@ name: Deploy to Server
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Add SSH key
-        uses: webfactory/ssh-agent@v0.8.0
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            echo "Stopping pm2 process"
+            pm2 stop my-app || true
 
-      - name: Trust server fingerprint
-        run: |
-          mkdir -p ~/.ssh
-          echo "5.129.197.158 ssh-ed25519 SHA256:w981K0Fau9rQU4tq6GHbLiRY4ZDdhbWmKATmJGh0ZQU" >> ~/.ssh/known_hosts
+            echo "Go to project directory"
+            cd /path/to/your/project
 
-      - name: Deploy
-        run: |
-          ssh root@5.129.197.158 << 'EOF'
-          cd /var/www/verstack-web
-          pm2 stop verstack
-          git pull origin main
-          npm install
-          npm run build
-          pm2 start verstack --update-env
-          pm2 status
-          EOF
+            echo "Pulling latest changes"
+            git pull origin main
+
+            echo "Installing dependencies and building"
+            npm install
+            npm run build
+
+            echo "Starting pm2 process"
+            pm2 start npm --name "my-app" -- start
