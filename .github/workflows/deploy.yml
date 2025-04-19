@@ -30,4 +30,5 @@ jobs:
           npm install
           npm run build
           pm2 start verstack --update-env
+          pm2 status
           EOF

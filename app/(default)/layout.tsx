@@ -1,8 +1,9 @@
+"use client";
+
 import { YMInitializer } from 'react-yandex-metrika';
 import Header from "@/app/components/main/header";
 import Footer from "../components/main/footer";
 import { ReactNode, useEffect } from 'react';
-import ym from 'react-yandex-metrika';
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -10,14 +11,26 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   useEffect(() => {
-    ym('hit', '/home'); 
+    // Use window.ym if available
+    if (typeof window !== 'undefined' && window.ym) {
+      window.ym('hit', window.location.pathname);
+    }
   }, []);
 
   return (
     <html lang="ru">
       <head>
+        {/* YMInitializer should be a self-closing tag in head */}
         <YMInitializer
-          accounts={[101153409]} 
+          accounts={[101153409]}
+          options={{
+            defer: true,
+            webvisor: true,
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+          }}
+          version="2"
         />
       </head>
       <body>
