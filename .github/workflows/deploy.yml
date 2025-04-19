@@ -18,6 +18,13 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
+            echo "Checking pm2 and npm versions"
+            pm2 -v
+            npm -v
+            which pm2
+            which npm
+
+
             echo "Go to project directory"
             cd /var/www/verstack-web
 
