@@ -1,7 +1,7 @@
 import Api from "@/app/api";
 import A_GridScroll from "@/app/components/admin/forms/entries/scrollGrid";
 import A_SingleElem from "@/app/components/admin/forms/entries/single";
-
+export const dynamic = "force-dynamic";
 
 export default async function Admin() {
     const formEntries: [] = await new Api().get("forms");

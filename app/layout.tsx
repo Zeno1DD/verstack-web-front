@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat_Alternates } from "next/font/google";
+import Mertika from "./components/main/yandexmetrika";
 
 export const metadata: Metadata = {
   title: "Verstack-web",
@@ -17,7 +18,9 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) 
+
+{
   return (
     <html lang="ru">
       <head>
@@ -25,6 +28,7 @@ export default function RootLayout({
       </head>
       <body className={`${montserrat.className} max-w-box-xl mx-auto `}
       >
+        <Mertika />
         {children}
       </body>
     </html>
