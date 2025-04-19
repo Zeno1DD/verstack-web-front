@@ -18,18 +18,18 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            echo "Stopping pm2 process"
-            pm2 stop my-app || true
-
             echo "Go to project directory"
-            cd /path/to/your/project
+            cd /var/www/verstack-web
+
+            echo "Stopping pm2 process"
+            pm2 stop verstack-web || true
 
             echo "Pulling latest changes"
-            git pull origin main
+            git pull
 
             echo "Installing dependencies and building"
             npm install
             npm run build
 
             echo "Starting pm2 process"
-            pm2 start npm --name "my-app" -- start
+            pm2 start --name "verstack-web" -- start
