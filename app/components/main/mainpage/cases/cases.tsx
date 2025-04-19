@@ -104,7 +104,6 @@ export default function Cases() {
         <section className="py-12">
             <h1 className="text-5xl font-extrabold mb-10 leading-7">Проекты</h1>
 
-            {/* Табы */}
             <div className="flex gap-4 mb-10">
                 {categories.map(cat => (
                     <button
@@ -120,7 +119,6 @@ export default function Cases() {
                 ))}
             </div>
 
-            {/* Контент */}
             {isSimpleGrid ? (
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {filteredCases.map((item, index) => (
