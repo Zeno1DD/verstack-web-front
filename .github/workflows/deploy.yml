@@ -19,24 +19,22 @@ jobs:
           port: 22
           script: |
             echo "Checking pm2 and npm versions"
-            pm2 -v
-            npm -v
-            which pm2
-            which npm
-
+            /usr/local/bin/pm2 -v
+            /usr/bin/npm -v
 
             echo "Go to project directory"
             cd /var/www/verstack-web
 
             echo "Stopping pm2 process"
-            pm2 stop verstack-web || true
+            /usr/local/bin/pm2 stop verstack-web || true
 
             echo "Pulling latest changes"
             git pull
 
             echo "Installing dependencies and building"
-            npm install
-            npm run build
+            /usr/bin/npm install
+            /usr/bin/npm run build
 
             echo "Starting pm2 process"
-            pm2 start --name "verstack-web" npm -- run start
+            /usr/local/bin/pm2 start --name "verstack-web" npm -- run start
+
