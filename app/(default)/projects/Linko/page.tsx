@@ -17,7 +17,7 @@ export default function Linko() {
                 </div>
 
                 <div className="ml-5">
-                    <div className="w-[400px] h-[615px] bg-white shadow-xl p-6 rounded-[50px] ">
+                    <div className="w-[400px] h-[615px] bg-white shadow-xl p-6 rounded-[50px]">
                         <h2 className="text-4xl font-extrabold mb-4 ">Linco | Corporate Website Design</h2>
                         <div className="flex gap-2">
                             <div className="py-2 px-5 bg-white border-[1px] border-black font-extrabold text-[20px] rounded-full">
