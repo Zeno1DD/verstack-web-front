@@ -23,32 +23,8 @@ const casesData: CaseItem[] = [
         category: 'Сайты',
     },
     {
-        title: 'ЦЭО "Взгляд"',
-        tags: ['UX/UI', 'Website', 'WordPress'],
-        bg: '/cases/bg1.png',
-        icon: '/cases/aww.png',
-        href: 'projects/Linko',
-        category: 'Сайты',
-    },
-    {
-        title: 'СкайПром',
-        tags: ['UX/UI', 'Website', 'WordPress'],
-        bg: '/cases/bg1.png',
-        icon: '/cases/aww.png',
-        href: 'projects/Linko',
-        category: 'Сайты',
-    },
-    {
-        title: 'Walmi',
-        tags: ['UX/UI', 'Website', 'WordPress'],
-        bg: '/cases/bg1.png',
-        icon: '/cases/aww.png',
-        href: 'projects/walmi',
-        category: 'Сайты',
-    },
-    {
         title: 'W2C',
-        tags: ['Аватарка', 'Illustrator'],
+        tags: ['Аватарка', 'Photoshop'],
         bg: '/cases/work2.jpg',
         icon: '',
         href: '',
@@ -56,7 +32,7 @@ const casesData: CaseItem[] = [
     },
     {
         title: 'Межрегиональная Алюминевая компания',
-        tags: ['Аватарка', 'Illustrator'],
+        tags: ['Аватарка', 'Photoshop'],
         bg: '/cases/alum.jpg',
         icon: '',
         href: '',
@@ -64,7 +40,7 @@ const casesData: CaseItem[] = [
     },
     {
         title: 'Аниме стикеры',
-        tags: ['Аватарка', 'Illustrator'],
+        tags: ['Аватарка', 'Photoshop'],
         bg: '/cases/animestik.jpg',
         icon: '',
         href: '',
@@ -72,7 +48,7 @@ const casesData: CaseItem[] = [
     },
     {
         title: 'Чистый рынок',
-        tags: ['Аватарки', 'Illustrator'],
+        tags: ['Аватарки', 'Photoshop'],
         bg: '/cases/clearrinok.jpg',
         icon: '',
         href: '',
@@ -88,15 +64,12 @@ const casesData: CaseItem[] = [
     },
 ]
 
-const categories = ['Все', 'Сайты', 'Логотипы', 'Аватарки']
+const categories = ['Сайты', 'Логотипы', 'Аватарки']
 
 export default function Cases() {
-    const [activeCategory, setActiveCategory] = useState('Все')
+    const [activeCategory, setActiveCategory] = useState('Сайты')
 
-    const filteredCases =
-        activeCategory === 'Все'
-            ? casesData
-            : casesData.filter(item => item.category === activeCategory)
+    const filteredCases = casesData.filter(item => item.category === activeCategory)
 
     const isSimpleGrid = activeCategory === 'Логотипы' || activeCategory === 'Аватарки'
 
@@ -110,8 +83,8 @@ export default function Cases() {
                         key={cat}
                         onClick={() => setActiveCategory(cat)}
                         className={`px-5 py-2 rounded-full border transition ${activeCategory === cat
-                                ? 'bg-black text-white'
-                                : 'bg-white text-black border-gray-300'
+                            ? 'bg-black text-white'
+                            : 'bg-white text-black border-gray-300'
                             }`}
                     >
                         {cat}
