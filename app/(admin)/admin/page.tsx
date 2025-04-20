@@ -1,4 +1,5 @@
 import Api from "@/app/api";
+import ButtonDeAuth from "@/app/components/admin/button";
 import A_GridScroll from "@/app/components/admin/forms/entries/scrollGrid";
 import A_SingleElem from "@/app/components/admin/forms/entries/single";
 export const dynamic = "force-dynamic";
@@ -9,6 +10,7 @@ export default async function Admin() {
     return (
 
         <main className="rounded-2xl pb-3 bg-blue-200 text-white w-[720px]">
+            <ButtonDeAuth />
             <div className="rounded-2xl px-5 py-3 bg-blue-600">
                 <h2 className="text-center text-2xl">Админ панель</h2>
                 <p className="text-center">ver. минус 1</p>
