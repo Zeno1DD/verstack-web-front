@@ -17,7 +17,7 @@ const casesData: CaseItem[] = [
     {
         title: 'Linco',
         tags: ['UX/UI', 'Website', 'WordPress'],
-        bg: '/cases/bg1.png',
+        bg: '/cases/sites/linco/bg1.png',
         icon: '/cases/aww.png',
         href: 'projects/Linko',
         category: 'Сайты',
@@ -25,7 +25,7 @@ const casesData: CaseItem[] = [
     {
         title: 'W2C',
         tags: ['Аватарка', 'Photoshop'],
-        bg: '/cases/work2.jpg',
+        bg: '/cases/ava/work2.jpg',
         icon: '',
         href: '',
         category: 'Аватарки',
@@ -33,7 +33,7 @@ const casesData: CaseItem[] = [
     {
         title: 'Межрегиональная Алюминевая компания',
         tags: ['Аватарка', 'Photoshop'],
-        bg: '/cases/alum.jpg',
+        bg: '/cases/ava/alum.jpg',
         icon: '',
         href: '',
         category: 'Аватарки',
@@ -41,7 +41,7 @@ const casesData: CaseItem[] = [
     {
         title: 'Аниме стикеры',
         tags: ['Аватарка', 'Photoshop'],
-        bg: '/cases/animestik.jpg',
+        bg: '/cases/ava/animestik.jpg',
         icon: '',
         href: '',
         category: 'Аватарки',
@@ -49,7 +49,7 @@ const casesData: CaseItem[] = [
     {
         title: 'Чистый рынок',
         tags: ['Аватарки', 'Photoshop'],
-        bg: '/cases/clearrinok.jpg',
+        bg: '/cases/ava/clearrinok.jpg',
         icon: '',
         href: '',
         category: 'Аватарки',
@@ -57,20 +57,27 @@ const casesData: CaseItem[] = [
     {
         title: 'Complexus',
         tags: ['Логотипы', 'Illustrator'],
-        bg: '/cases/complexus.jpg',
+        bg: '/cases/logo/complexus.jpg',
         icon: '',
         href: '',
         category: 'Логотипы',
     },
+    {
+        title: 'VERSACK',
+        tags: ['Презентации', 'PowerPoint'],
+        bg: '/cases/present/verstack/Preview-verstack.jpg',
+        icon: '/cases/aww.png',
+        href: 'projects/verstack-pres',
+        category: 'Презентации',
+    },
 ]
 
-const categories = ['Сайты', 'Логотипы', 'Аватарки']
+const categories = ['Сайты', 'Логотипы', 'Аватарки', 'Презентации']
 
 export default function Cases() {
     const [activeCategory, setActiveCategory] = useState('Сайты')
 
     const filteredCases = casesData.filter(item => item.category === activeCategory)
-
     const isSimpleGrid = activeCategory === 'Логотипы' || activeCategory === 'Аватарки'
 
     return (
@@ -136,6 +143,11 @@ export default function Cases() {
                                 fill
                                 className="object-cover rounded-[50px]"
                             />
+
+                            {/* Затемнение только нижней части */}
+                            <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black via-black/70 to-transparent z-0 transition-all duration-300" />
+
+                            {/* Контент поверх затемнения */}
                             <div className="absolute bottom-6 left-6 right-6 flex flex-col justify-end text-white z-10 p-[15px]">
                                 <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
                                 <div className="flex items-center justify-between">
@@ -161,8 +173,8 @@ export default function Cases() {
                                     )}
                                 </div>
                             </div>
-                            <div className="absolute inset-0 z-0" />
                         </Link>
+
                     ))}
                 </div>
             )}
