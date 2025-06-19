@@ -11,7 +11,7 @@ export default function Linko() {
                 <div className="w-[70%] shrink-0">
                     <Image
                         src={LinkoImg}
-                        alt="Verstack logo"
+                        alt="LinkoImage"
                         className="w-full h-auto"
                     />
                 </div>
@@ -40,7 +40,7 @@ export default function Linko() {
                                 className="h-[15px] w-[15px]"
                             />
                             <p>Сайт проекта:</p>
-                            <Link href="https://lincogroup.ru/"
+                            <Link href="https://linco.group/"
                                 className="ml-1 text-blue-500"
                                 target="_blank"
                             > lincogroup.ru</Link>
@@ -50,7 +50,9 @@ export default function Linko() {
                         <div className="w-full h-px bg-[#D4D4D4] my-3" />
                         <p className="">
 
-                            Здесь описание проекта, его особенности, используемые технологии и т.д.
+                            Linco
+                                - надёжный партнёр в создании высокотехнологичных индустриальных парков.
+                                Linco разрабатывает решения, учитывающие потребности бизнеса.
                         </p>
                     </div>
                 </div>
